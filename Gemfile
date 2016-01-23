@@ -46,6 +46,10 @@ group :development, :test do
   gem 'rack-livereload'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'pg'
