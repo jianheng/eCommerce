@@ -1,0 +1,11 @@
+<%= f.error_notification %>
+<%= f.input :name, placeholder: 'Name' %>
+<%= f.input :description, placeholder: 'Description' %>
+<div class="form-group">
+  <div class="col-sm-9">
+    <%= f.fields_for :image do |i| %>
+      <%= i.file_field :attachment, as: :file, class: 'form-control' %>
+    <% end %>
+  </div>
+</div>
+<%= f.button :submit %>

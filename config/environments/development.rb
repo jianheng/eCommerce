@@ -43,4 +43,14 @@ Rails.application.configure do
 
   # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+  # Image Processor
+  Paperclip.options[:command_path] = '/usr/local/bin/'
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    bucket: 'ecommerceshop',
+    s3_region: 'ap-southeast-1',
+    s3_host_name: 's3-ap-southeast-1.amazonaws.com'
+  }
 end

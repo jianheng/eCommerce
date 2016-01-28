@@ -5,6 +5,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def new
     @product = Product.new
+    @image = @product.build_image
   end
 
   def create
@@ -44,6 +45,8 @@ class Admin::ProductsController < Admin::BaseController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description)
+    params.require(:product).permit(:name,
+                                    :description,
+                                    image_attributes: [:attachment])
   end
 end
